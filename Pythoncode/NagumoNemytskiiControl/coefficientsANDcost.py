@@ -51,7 +51,7 @@ delta=0.005
 gamma=0.008
 
 
-eps=1
+eps=0.04
 
 #boundary condition: bd=1:Neumann, bd=0: Dirichlet
 bd=1
