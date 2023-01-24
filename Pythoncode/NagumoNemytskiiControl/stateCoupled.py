@@ -63,7 +63,7 @@ def solve(T,a,y0,z0,dx,dt,w,bd,delta,gamma,eta,alpha2,Dy,Dz,rad):
 
         
         #solve the linear equation for the semi-implicit-Euler scheme
-        ykt=spsolve(Mk,M.dot(f(ypre)-eta*zpre+(1/dt)*ypre+u+w[:,r]))
+        ykt=spsolve(Mk,M.dot(f(ypre)-eta*zpre+(1/dt)*ypre+u)+w[:,r])
         zkt=spsolve(Mk2,M.dot(gamma*ykt+(1/dt)*zpre))
             
         ypre=ykt
