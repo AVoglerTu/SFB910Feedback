@@ -39,7 +39,7 @@ def opt(T,a,N,y0,z0,alpha0,yref,yT,dx,dt,bd,delta,gamma,eta,Dy,Dz,eps,det,M,eps2
     
     
     print('calculating initial state')
-    w=(np.random.normal(0,eps*4/float(6)*(dx/float(dt)),[nx,nt]))
+    w=eps*(np.random.normal(0,np.sqrt(4/float(6))*np.sqrt(dx)/np.sqrt(dt),[nx,nt]))
     #calculate state and adjoint for a given sample
     y=solve(T,a,y0,z0,dx,dt,w,bd,delta,gamma,eta,alpha0,Dy,Dz,z)
     
@@ -137,7 +137,7 @@ def opt(T,a,N,y0,z0,alpha0,yref,yT,dx,dt,bd,delta,gamma,eta,Dy,Dz,eps,det,M,eps2
                     
                     #samples of Q-Wiener process for Monte-Carlo
                     if det==0:
-                        w=(np.random.normal(0,eps*4/float(6)*(dx/float(dt)),[nx,nt])) 
+                        w=eps*(np.random.normal(0,np.sqrt(4/float(6))*np.sqrt(dx)/np.sqrt(dt),[nx,nt])) 
                         wold.append(w) 
                     else:
                         w=np.zeros([nx,nt])
