@@ -75,7 +75,7 @@ def solveUc(T,a,y0,z0,dx,dt,w,bd,delta,gamma,eta,Dy,Dz,l):
         c=l*np.ones([nx])
         
         #solve the linear equation for the semi-implicit-Euler scheme
-        ykt=spsolve(Mk,M.dot(f(ypre,nx)-eta*zpre+(1/dt)*ypre+w[:,r]+c))
+        ykt=spsolve(Mk,M.dot(f(ypre,nx)-eta*zpre+(1/dt)*ypre+c)+w[:,r])
         zkt=spsolve(Mk2,M.dot(gamma*ykt+(1/dt)*zpre))
             
         ypre=ykt
