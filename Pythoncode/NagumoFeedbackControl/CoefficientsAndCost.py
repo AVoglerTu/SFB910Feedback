@@ -33,7 +33,7 @@ a=np.arange(0,L,L/float(K))
 nx=a.size
 
 #noise parameter 
-eps=np.sqrt(1/float(L))
+eps=1/float(L)
 
 #gradient norm threshold
 gamma=0.00001
