@@ -137,7 +137,7 @@ def opt(T,a,N,y0,z0,alpha0,yref,yT,dx,dt,bd,delta,gamma,eta,Dy,Dz,eps,det,M,eps2
                     
                     #samples of Q-Wiener process for Monte-Carlo
                     if det==0:
-                        w=eps*(np.random.normal(0,np.sqrt(4/float(6))*np.sqrt(dx)/np.sqrt(dt),[nx,nt])) 
+                        w=eps*(4/float(6))*np.sqrt(dt)*np.sqrt(dx)*(np.random.normal(0,1,[nx,nt]))
                         wold.append(w) 
                     else:
                         w=np.zeros([nx,nt])
