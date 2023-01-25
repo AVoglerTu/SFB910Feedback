@@ -59,7 +59,7 @@ def opt(u0,yref,yT,model,gplot,cost,L2diff,solMin,solMax,normal,V,phi):
             pltcount=pltcount+1
             
             #sample signal data
-            w=(tf.random.normal([nt,K],0,dt*eps,dtype=tf.float32))
+            w=np.sqrt(dt)*eps*(tf.random.normal([nt,K],0,1,dtype=tf.float32))
             
             #solve state
             sol=solveState(u0,model,w,solMin,solMax,normal)
