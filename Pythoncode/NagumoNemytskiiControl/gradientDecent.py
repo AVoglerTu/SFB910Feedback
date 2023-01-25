@@ -39,7 +39,7 @@ def opt(T,a,N,y0,z0,alpha0,yref,yT,dx,dt,bd,delta,gamma,eta,Dy,Dz,eps,det,M,eps2
     
     
     print('calculating initial state')
-    w=eps*(np.random.normal(0,np.sqrt(4/float(6))*np.sqrt(dx)/np.sqrt(dt),[nx,nt]))
+    w=eps*(4/float(6))*np.sqrt(dt)*np.sqrt(dx)*(np.random.normal(0,1,[nx,nt]))
     #calculate state and adjoint for a given sample
     y=solve(T,a,y0,z0,dx,dt,w,bd,delta,gamma,eta,alpha0,Dy,Dz,z)
     
