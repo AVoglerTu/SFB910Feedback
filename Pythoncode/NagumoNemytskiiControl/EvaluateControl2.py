@@ -33,7 +33,7 @@ xu=[]
 for k in range(Nsim):
     
     #noise realization
-    w=(np.random.normal(0,eps*4/float(6)*(dx/float(dt)),[nx,nt])) 
+    w=eps*(4/float(6))*np.sqrt(dt)*np.sqrt(dx)*(np.random.normal(0,1,[nx,nt]))
     #w=np.zeros([nx,nt])
     #uncontrolled state
     y1=solveUc(T,a,y0,z0,dx,dt,w,bd,delta,gamma,eta,Dy,Dz,0)
